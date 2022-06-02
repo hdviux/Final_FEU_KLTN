@@ -1,0 +1,52 @@
+.signin {
+  display: flex;
+  flex: 1;
+  height: 600px;
+  flex-direction: row;
+}
+.signinl {
+  display: flex;
+  width: 45%;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(103, 103, 103, 0.54);
+}
+.signinr {
+  display: flex;
+  width: 55%;
+  height: 600px;
+  padding-left: 100px;
+  align-items: center;
+}
+.formsinginup {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+  color: #144c95;
+  button {
+    background: #147c04;
+    color: white;
+    margin-right: 50px;
+    border-radius: 6px;
+    height: 40px;
+    font-size: 17px;
+    font-weight: bold;
+    &:hover {
+      background: white;
+      color: #147c04;
+      border: 1px solid #147c04;
+    }
+    &:focus {
+      background: white;
+      color: #147c04;
+      border: 1px solid #147c04;
+    }
+  }
+  a: {
+    color: #144c95;
+  }
+}
+

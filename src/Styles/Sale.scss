@@ -1,0 +1,53 @@
+.salestyle {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: auto;
+}
+.salestyletit {
+  display: flex;
+  flex: 1;
+  font-size: 30px;
+  font-weight: bold;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  a {
+    color: #144c95;
+    &:hover {
+      color: #f94c43;
+    }
+  }
+}
+.salestylecontent {
+  display: flex;
+  flex: 1;
+  height: 500px;
+}
+
+.salestylebot {
+  display: flex;
+  flex: 1;
+  font-size: 25px;
+  font-weight: bold;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  margin-top: 25px;
+  text-decoration: underline;
+  align-items: center;
+  a {
+    color: #144c95;
+    &:hover {
+      color: #f94c43;
+    }
+  }
+}
+.btnnp{
+  display: flex;
+  flex:1;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  
+}

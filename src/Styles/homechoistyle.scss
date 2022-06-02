@@ -1,0 +1,19 @@
+.homechoistyle {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.tithomechoistyle {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  width: 200px;
+}
+
+.menuchoi {
+  display: flex;
+  height: 500px;
+  background: white;
+}

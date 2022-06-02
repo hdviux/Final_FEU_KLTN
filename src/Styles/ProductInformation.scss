@@ -1,0 +1,41 @@
+.productcon {
+  display: flex;
+  flex: 1;
+ 
+  flex-direction: column;
+
+  .productinfo {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    background: white;
+
+    .infoleft {
+      width: 50%;
+      border-right: 1px solid rgba(103, 103, 103, 0.54);
+    }
+    .inforight {
+      width: 50%;
+      padding-bottom: 50px;
+    }
+  }
+
+  .productavacomment {
+    display: flex;
+    flex: 1;
+    height: 1000px;
+    flex-direction: row;
+    background: white;
+    margin-top: 50px;
+    padding: 50px;
+    flex-direction: row;
+
+    .lefcom {
+      width: 40%;
+      border-right: 1px solid rgba(103, 103, 103, 0.54);
+    }
+    .rigcom {
+      width: 60%;
+    }
+  }
+}

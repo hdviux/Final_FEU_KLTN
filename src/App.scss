@@ -1,0 +1,144 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.tit {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  flex-direction: row;
+}
+.cont {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  padding-left: 100px;
+}
+.search {
+  height: 100%;
+  display: flex;
+  width: 65%;
+  align-items: center;
+  justify-content: center;
+
+  .ant-btn-primary {
+    background-color: #144c95;
+    color: #f0f8ff;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+    &:hover {
+      background-color: #12407c;
+      color: #f0f8ff;
+      border: 1px solid #12407c;
+    }
+    &:focus {
+      background-color: #12407c;
+      color: #f0f8ff;
+      border: 1px solid #12407c;
+    }
+  }
+}
+.divsearch {
+  height: 80%;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  border: none;
+  padding-left: 25px;
+  padding-right: 50px;
+  &:focus {
+    background: #c4d1de;
+    color: #144c95;
+    font-size: 18px;
+    outline: none;
+    font-weight: bold;
+  }
+}
+.con {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 50px;
+
+  .icons {
+    color: #144c95;
+    font-size: 32px;
+    &:hover {
+      color: red;
+    }
+  }
+}
+.cate {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background: #65b342;
+}
+.catetit {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  background: #65b342;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.homechoi {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background: #144c95;
+}
+
+.searchre {
+  height: 100%;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+}

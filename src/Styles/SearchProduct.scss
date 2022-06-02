@@ -1,0 +1,55 @@
+.searchcontainer {
+  display: flex;
+  flex: 1;
+  // flex-direction: row;
+}
+.leftcontainer {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  border-right: 1px solid rgba(103, 103, 103, 0.54);
+  padding: 15px;
+  margin-top: 50px;
+}
+.contenttit {
+  margin-bottom: 30px;
+  h4 {
+    font-weight: bold;
+  }
+}
+.contentchoi {
+  margin-bottom: 50px;
+  .divradio {
+    display: flex;
+    width: 360px;
+    height: 40px;
+    border-bottom: 1px solid rgba(103, 103, 103, 0.54);
+
+    .divradiocontent {
+      display: flex;
+      width: 310px;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 15px;
+    }
+  }
+}
+
+.rightcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.arange {
+  display: flex;
+  flex: 1;
+  padding-right: 100px;
+  font-size: 17px;
+  a {
+    color: red;
+    &:hover {
+      color: rgb(193, 31, 31);
+    }
+  }
+}
