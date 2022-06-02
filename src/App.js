@@ -53,31 +53,32 @@ function App() {
             loggedInUser.accessToken
           );
           setAllCart(getAllCart.result);
+          const getAllProduct = await orderAPI.getallorderbyuserid(
+            loggedInUser.accessToken
+          );
+          setAllOrder(getAllProduct.result);
+          const getAllProductPending = await orderAPI.getallorderbystatus(
+            { orderStatus: "pending" },
+            loggedInUser.accessToken
+          );
+          setAllOrderPending(getAllProductPending.result);
+          const getAllProductReceived = await orderAPI.getallorderbystatus(
+            { orderStatus: "received" },
+            loggedInUser.accessToken
+          );
+          setAllOrderReceived(getAllProductReceived.result);
+          const getAllProductRefund = await orderAPI.getallorderbystatus(
+            { orderStatus: "refund" },
+            loggedInUser.accessToken
+          );
+          setAllOrderRefund(getAllProductRefund.result);
+          const getAllProductRefundShipping =
+            await orderAPI.getallorderbystatus(
+              { orderStatus: "shipping" },
+              loggedInUser.accessToken
+            );
+          setAllOrderShipping(getAllProductRefundShipping.result);
         }
-        const getAllProduct = await orderAPI.getallorderbyuserid(
-          loggedInUser.accessToken
-        );
-        setAllOrder(getAllProduct.result);
-        const getAllProductPending = await orderAPI.getallorderbystatus(
-          { orderStatus: "pending" },
-          loggedInUser.accessToken
-        );
-        setAllOrderPending(getAllProductPending.result);
-        const getAllProductReceived = await orderAPI.getallorderbystatus(
-          { orderStatus: "received" },
-          loggedInUser.accessToken
-        );
-        setAllOrderReceived(getAllProductReceived.result);
-        const getAllProductRefund = await orderAPI.getallorderbystatus(
-          { orderStatus: "refund" },
-          loggedInUser.accessToken
-        );
-        setAllOrderRefund(getAllProductRefund.result);
-        const getAllProductRefundShipping = await orderAPI.getallorderbystatus(
-          { orderStatus: "shipping" },
-          loggedInUser.accessToken
-        );
-        setAllOrderShipping(getAllProductRefundShipping.result);
       } catch (error) {
         console.log(error);
       }
@@ -144,19 +145,12 @@ function App() {
               />
             }
           />
-          <Route path="*" element={<PageError />}/>
+          <Route path="*" element={<PageError />} />
         </Routes>
       </Content>
       <Footer style={{ textAlign: "center" }}>
         <Foot />
       </Footer>
-      {isSignIn ? (
-        <SpeedDial
-          ariaLabel="SpeedDial basic example"
-          sx={{ position: "fixed", bottom: 16, right: 16 }}
-          icon={<MessageIcon />}
-        />
-      ) : null}
     </Layout>
   );
 }
