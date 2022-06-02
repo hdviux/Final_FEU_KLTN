@@ -28,29 +28,6 @@ const ItemCard = (props) => {
     action();
   }, []);
   return (
-    // <Badge
-    //   count={
-    //     discount === 0 ? (
-    //       0
-    //     ) : (
-    //       <div
-    //         style={{
-    //           width: "60px",
-    //           height: "40px",
-    //           background: "#ff0000",
-    //           alignItems: "center",
-    //           display: "flex",
-    //           fontSize: 18,
-    //           fontWeight: "bold",
-    //           color: "white",
-    //           borderRadius: "15px",
-    //         }}
-    //       >
-    //         - {discount}%
-    //       </div>
-    //     )
-    //   }
-    // >
     <Card
       hoverable
       onClick={() => {
@@ -69,6 +46,9 @@ const ItemCard = (props) => {
       <Meta
         title={<Rate disabled value={Number(props.data.avgEvaluate)} />}
         className="mb-3"
+      />
+      <Meta 
+      title={discount===0?<div style={{color:"#ffffff"}}>{discount}%</div>:<div style={{color:"#ff4d4f"}}>Sale {discount}% </div>}
       />
       <Meta
         title={
@@ -107,7 +87,6 @@ const ItemCard = (props) => {
         }
       />
     </Card>
-    // </Badge>
   );
 };
 
