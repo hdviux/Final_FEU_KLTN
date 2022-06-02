@@ -28,88 +28,86 @@ const ItemCard = (props) => {
     action();
   }, []);
   return (
-    <Badge
-      count={
-        discount === 0 ? (
-          0
-        ) : (
-          <div
+    // <Badge
+    //   count={
+    //     discount === 0 ? (
+    //       0
+    //     ) : (
+    //       <div
+    //         style={{
+    //           width: "60px",
+    //           height: "40px",
+    //           background: "#ff0000",
+    //           alignItems: "center",
+    //           display: "flex",
+    //           fontSize: 18,
+    //           fontWeight: "bold",
+    //           color: "white",
+    //           borderRadius: "15px",
+    //         }}
+    //       >
+    //         - {discount}%
+    //       </div>
+    //     )
+    //   }
+    // >
+    <Card
+      hoverable
+      onClick={() => {
+        navigate(`/product/${props.data._id}`, {
+          state: {
+            state: props.data,
+            discount: discount,
+          },
+        });
+        window.location.reload(false);
+      }}
+      style={{ width: 300 }}
+      cover={<img alt="example" height={300} src={props.data.image[0]} />}
+    >
+      <Divider />
+      <Meta
+        title={<Rate disabled value={Number(props.data.avgEvaluate)} />}
+        className="mb-3"
+      />
+      <Meta
+        title={
+          <h4
             style={{
-              width: "60px",
-              height: "40px",
-              background: "#ff0000",
-              alignItems: "center",
-              display: "flex",
-              fontSize: 18,
-              fontWeight: "bold",
-              color: "white",
-              borderRadius: "15px",
+              color: "#144c95",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
             }}
           >
-            - {discount}%
-          </div>
-        )
-      }
-    >
-      <Card
-        hoverable
-        onClick={() => {
-          navigate(`/product/${props.data._id}`, {
-            state: {
-              state: props.data,
-              discount: discount,
-            },
-          });
-          window.location.reload(false);
-        }}
-        style={{ width: 300 }}
-        cover={<img alt="example" height={300} src={props.data.image[0]} />}
-      >
-        <Divider />
-        <Meta
-          title={<Rate disabled value={Number(props.data.avgEvaluate)} />}
-          className="mb-3"
-        />
-        <Meta
-          title={
-            <h4
-              style={{
-                color: "#144c95",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {props.data.productName}
-            </h4>
-          }
-          description={
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <div style={{ color: "#ff4d4f", fontSize: 20 }}>
-                {discount === 0 ? (
-                  <div>{props.data.price}₫</div>
-                ) : (
-                  <div
-                    style={{ display: "flex", flex: 1, flexDirection: "row" }}
-                  >
-                    <Text delete className="me-5">
-                      <div>{props.data.price}₫</div>
-                    </Text>
-                    {props.data.price * ((100 - discount) / 100)}₫
-                  </div>
-                )}
-              </div>
+            {props.data.productName}
+          </h4>
+        }
+        description={
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <div style={{ color: "#ff4d4f", fontSize: 20 }}>
+              {discount === 0 ? (
+                <div>{props.data.price}₫</div>
+              ) : (
+                <div style={{ display: "flex", flex: 1, flexDirection: "row" }}>
+                  <Text delete className="me-5">
+                    <div>{props.data.price}₫</div>
+                  </Text>
+                  {props.data.price * ((100 - discount) / 100)}₫
+                </div>
+              )}
             </div>
-          }
-        />
-      </Card>
-    </Badge>
+          </div>
+        }
+      />
+    </Card>
+    // </Badge>
   );
 };
 
