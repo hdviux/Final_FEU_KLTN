@@ -123,11 +123,11 @@ const HeaderBar = (props) => {
         <div className="con">
           {isSignIn ? (
             <Space size={40}>
-              <Badge count={5}>
+              {/* <Badge count={5}>
                 <IconButton>
                   <NotificationsIcon className="icons" />
                 </IconButton>
-              </Badge>
+              </Badge> */}
               <Dropdown overlay={menu} placement="bottom" arrow>
                 <IconButton>
                   <AccountCircleIcon className="icons" />

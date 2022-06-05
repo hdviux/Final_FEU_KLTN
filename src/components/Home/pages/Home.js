@@ -9,9 +9,10 @@ function Home() {
   return (
     <div>
       <CarouselForm />
-      <Sale />
-      <Divider />
       <Hot />
+      <Divider />
+      <Sale />
+
       {/* <Sale />
       <Divider />
       <Hot />

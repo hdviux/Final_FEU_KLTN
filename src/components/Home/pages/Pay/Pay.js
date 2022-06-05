@@ -18,7 +18,6 @@ import orderAPI from "../../../../api/orderAPI";
 
 const Pay = () => {
   const location = useLocation();
-  const [checkout, setCheckOut] = useState(false);
   const navigate = useNavigate();
   const loggedInUser = useSelector((state) => state.user.current);
   const [listCart, setListCart] = useState([]);
@@ -438,11 +437,12 @@ const Pay = () => {
                         {
                           amount: {
                             value: location.state.state.image
-                              ? `${
-                                  Number(location.state.state.price) *
-                                  Number(location.state.state.quantity)
-                                }`
-                              : `${totalPrice}`,
+                              ? `${(
+                                  (Number(location.state.state.price) *
+                                    Number(location.state.state.quantity)) /
+                                  23000
+                                ).toFixed()}`
+                              : `${(totalPrice / 23000).toFixed}`,
                           },
                         },
                       ],

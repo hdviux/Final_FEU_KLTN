@@ -8,7 +8,6 @@ import ItemCard from "./ItemCard";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import productAPI from "../../../../api/productAPI";
-import evaluateAPI from "../../../../api/evaluateAPI";
 import { useNavigate } from "react-router-dom";
 const Hot = () => {
   const ref = useRef(null);
@@ -19,33 +18,12 @@ const Hot = () => {
   };
   useLayoutEffect(() => {
     const action = async () => {
-      const prevData = await productAPI.getallproduct();
-      const arr = [];
-      for (let index = 0; index < prevData.result.length; index++) {
-        const getEvaluate = await evaluateAPI.findevaluatebyproductid({
-          productID: prevData.result[index]._id,
-        });
-        arr.push({
-          _id: prevData.result[index]._id,
-          productName: prevData.result[index].productName,
-          image: prevData.result[index].image,
-          quantity: prevData.result[index].quantity,
-          price: prevData.result[index].price,
-          description: prevData.result[index].description,
-          categoryID: prevData.result[index].categoryID,
-          brandID: prevData.result[index].brandID,
-          age: prevData.result[index].age,
-          avgEvaluate: getEvaluate.result.avgEvaluate,
-          totalCount: getEvaluate.result.totalCount,
-        });
-      }
-      const myData = []
-        .concat(arr)
-        .sort((a, b) => (a.avgEvaluate < b.avgEvaluate ? 1 : -1));
-      setData(myData);
+      const prevData = await productAPI.getproducthot();
+      setData(prevData.result);
     };
     action();
   }, []);
+  console.log(123,data);
   return (
     <div className="salestyle">
       <div className="salestyletit">
@@ -80,7 +58,7 @@ const Hot = () => {
           </div>
           <div className="conme1" ref={ref}>
             <Space size={30}>
-              {data.slice(0, 5).map((data, index) => {
+              {data.map((data, index) => {
                 return <ItemCard key={index} data={data} />;
               })}
             </Space>

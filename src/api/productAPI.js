@@ -26,6 +26,10 @@ const productAPI = {
       productName: data.productName,
     });
   },
+  getproducthot() {
+    const url = "/product/getproducthot";
+    return axiosClient.post(url);
+  },
 };
 
 export default productAPI;
