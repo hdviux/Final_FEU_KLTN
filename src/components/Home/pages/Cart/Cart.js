@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
-import { Input } from "antd";
+import { Input, Spin } from "antd";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import discountAPI from "../../../../api/discountAPI";
 import { useNavigate } from "react-router-dom";
 import ChangeCountCart from "./ChangeCountCart";
+import { LoadingOutlined } from "@ant-design/icons";
 const Cart = (props) => {
   const { Search } = Input;
   const [showIcon, setShowIcon] = useState(false);
@@ -23,6 +24,7 @@ const Cart = (props) => {
   const [data, setData] = useState([]);
   const [dis, setDis] = useState(false);
   const loggedInUser = useSelector((state) => state.user.current);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
     const action = async () => {
@@ -43,6 +45,7 @@ const Cart = (props) => {
         });
       }
       setData(arr);
+      setLoading(false);
     };
     action();
   }, [props.allCart]);
@@ -291,33 +294,56 @@ const Cart = (props) => {
           </div>
         </div>
       </div>
-      <Table
-        pagination={false}
-        rowSelection={{
-          ...rowSelection,
-        }}
-        columns={columns}
-        dataSource={data}
-        locale={{
-          emptyText: (
-            <Result
-              icon={<Empty description={false} />}
-              title="Không tìm thấy sản phẩm"
-              subTitle="Hiện chưa có sản phẩm trong giỏ hàng"
-              extra={
-                <Button
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                  type="primary"
-                >
-                  Về trang chủ
-                </Button>
-              }
-            />
-          ),
-        }}
-      />
+      {loading === true ? (
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            height: 200,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Spin
+            indicator={
+              <LoadingOutlined
+                style={{
+                  fontSize: 55,
+                }}
+                spin
+              />
+            }
+          />
+        </div>
+      ) : (
+        <Table
+          pagination={false}
+          rowSelection={{
+            ...rowSelection,
+          }}
+          columns={columns}
+          dataSource={data}
+          locale={{
+            emptyText: (
+              <Result
+                icon={<Empty description={false} />}
+                title="Không tìm thấy sản phẩm"
+                subTitle="Hiện chưa có sản phẩm trong giỏ hàng"
+                extra={
+                  <Button
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                    type="primary"
+                  >
+                    Về trang chủ
+                  </Button>
+                }
+              />
+            ),
+          }}
+        />
+      )}
     </div>
   );
 };
