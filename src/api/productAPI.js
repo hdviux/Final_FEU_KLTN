@@ -30,6 +30,10 @@ const productAPI = {
     const url = "/product/getproducthot";
     return axiosClient.post(url);
   },
+  getproductsamecategory(data) {
+    const url = "/product/getproductsamecategory";
+    return axiosClient.post(url, { categoryID: data.categoryID });
+  },
 };
 
 export default productAPI;

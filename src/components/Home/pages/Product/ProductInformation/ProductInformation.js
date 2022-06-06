@@ -43,6 +43,7 @@ const ProductInformation = (props) => {
 
   useLayoutEffect(() => {
     const action = async () => {
+      window.scrollTo(0, 0);
       const getEvaluate = await evaluateAPI.findevaluatebyproductid({
         productID: location.state.state._id,
       });
@@ -380,55 +381,6 @@ const ProductInformation = (props) => {
                 variant="danger"
                 style={{ width: "40%" }}
                 onClick={handleBuy}
-                //   onClick={(e) => {
-                //     if (isSignIn !== null) {
-                //       e.preventDefault();
-                //       if (count !== 0) {
-                //         localStorage.setItem(
-                //           "oneitemcart",
-                //           JSON.stringify({
-                //             _id: getProduct._id,
-                //             quantity: count,
-                //             productName: getProduct.productName,
-                //             price: getProduct.price,
-                //             image: getProduct.image,
-                //           })
-                //         );
-                //         History.push({
-                //           pathname: "/orderproduct/onecart",
-                //         });
-                //       }
-                //       if (count === 0) {
-                //         Swal.fire({
-                //           title: "Chưa chọn số lượng sảng phẩm",
-                //           icon: "warning",
-                //           showConfirmButton: false,
-                //           timer: 1000,
-                //         });
-                //       }
-                //     }
-                //     if (!isSignIn) {
-                //       e.preventDefault();
-                //       Swal.fire({
-                //         title: "Chưa đăng nhập tài khoản?",
-                //         text: "Bạn có muốn đến trang đăng nhập không!",
-                //         icon: "warning",
-                //         showCancelButton: true,
-                //         confirmButtonColor: "#3085d6",
-                //         cancelButtonColor: "#d33",
-                //         confirmButtonText: "Tiếp tục",
-                //         cancelButtonText: "Hủy",
-                //       }).then((result) => {
-                //         if (result.isConfirmed) {
-                //           History.push({
-                //             pathname: "/signin",
-                //             statepath: window.location.pathname,
-                //           });
-                //         }
-                //       });
-                //     }
-                //   }
-                // }
               >
                 Mua ngay
               </Button>

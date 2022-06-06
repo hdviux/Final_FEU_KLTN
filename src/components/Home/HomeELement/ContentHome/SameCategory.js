@@ -20,32 +20,10 @@ const SameCategory = (props) => {
 
   useLayoutEffect(() => {
     const action = async () => {
-      const prevData = await productAPI.findproductbycategoryid({
+      const prevData = await productAPI.getproductsamecategory({
         categoryID: props.data.categoryID,
       });
-      const arr = [];
-      for (let index = 0; index < prevData.result.length; index++) {
-        const getEvaluate = await evaluateAPI.findevaluatebyproductid({
-          productID: prevData.result[index]._id,
-        });
-        arr.push({
-          _id: prevData.result[index]._id,
-          productName: prevData.result[index].productName,
-          image: prevData.result[index].image,
-          quantity: prevData.result[index].quantity,
-          price: prevData.result[index].price,
-          description: prevData.result[index].description,
-          categoryID: prevData.result[index].categoryID,
-          brandID: prevData.result[index].brandID,
-          age: prevData.result[index].age,
-          avgEvaluate: getEvaluate.result.avgEvaluate,
-          totalCount: getEvaluate.result.totalCount,
-        });
-      }
-      const myData = []
-        .concat(arr)
-        .sort((a, b) => (a.avgEvaluate < b.avgEvaluate ? 1 : -1));
-      setData(myData);
+      setData(prevData.result);
     };
     action();
   }, []);
